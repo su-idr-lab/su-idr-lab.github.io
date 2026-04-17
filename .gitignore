@@ -1,0 +1,14 @@
+# Dev / preview artifacts
+.preview-http.err.log
+.preview-http.out.log
+.scholar.html
+.scholar-year.html
+.omx/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
