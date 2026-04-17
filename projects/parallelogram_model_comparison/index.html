@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-fidelity Modeling Stack for Compliant Mechanisms | IDR Lab</title>
+  <link rel="icon" type="image/png" href="../../logos/IDRLab_logo2_small_v2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    .project-page { max-width: 1060px; margin: 0 auto; }
+    .project-title {
+      font-family: "Newsreader", serif;
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+      line-height: 1.15;
+      text-align: center;
+      margin: 0 0 0.6rem;
+    }
+    .project-authors {
+      text-align: center;
+      font-size: 1.05rem;
+      margin: 0.4rem 0 0.2rem;
+    }
+    .project-venue {
+      text-align: center;
+      font-weight: 700;
+      margin: 0.2rem 0 1.3rem;
+    }
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem 1rem;
+      margin: 0.5rem 0 2rem;
+    }
+    .project-links a {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(36, 93, 184, 0.3);
+      background: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--ink);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .project-links a:hover {
+      background: rgba(36, 93, 184, 0.92);
+      color: #fff;
+    }
+    .figure-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .figure-row figure { margin: 0; }
+    .figure-row img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid rgba(17, 40, 70, 0.08);
+      background: #fff;
+    }
+    .figure-row figcaption {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+    .figure-row figcaption strong { color: var(--ink); }
+    .project-section { margin-top: 2.2rem; }
+    .project-section h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(17, 40, 70, 0.12);
+      padding-bottom: 0.4rem;
+    }
+    .project-section p { text-align: justify; }
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.6rem 0 1.2rem;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .result-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 700;
+      padding: 0.3rem 0;
+    }
+    .result-table th, .result-table td {
+      padding: 0.55rem 0.8rem;
+      border-bottom: 1px solid rgba(17, 40, 70, 0.1);
+      text-align: left;
+    }
+    .result-table thead th {
+      background: rgba(36, 93, 184, 0.1);
+      font-weight: 700;
+    }
+    .result-table tbody tr:last-child td { border-bottom: none; }
+    .bibtex-block {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1rem 1.1rem;
+      border-radius: 10px;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .code-links { margin-top: 0.6rem; }
+    .code-links li { margin-bottom: 0.3rem; }
+    @media (max-width: 680px) {
+      .figure-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="../../index.html" aria-label="IDR Lab home">
+        <img src="../../logos/IDRLab_logo2_small_v2.png" alt="IDR Lab logo" class="brand-mark">
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../people.html">People</a>
+        <a href="../../research.html">Research</a>
+        <a href="../../publications.html">Publications</a>
+        <a href="../../software.html">Software</a>
+        <a href="../../courses.html">Courses</a>
+        <a href="../../join.html">Join</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page-main">
+    <section class="section">
+      <div class="container">
+        <div class="project-page">
+
+          <h1 class="project-title">An Open-Source Hierarchical Multi-fidelity Modeling Stack for Design and Analysis of Compliant Mechanisms</h1>
+          <p class="project-authors">
+            <a href="mailto:su.298@osu.edu">Hai-Jun Su</a>, Benjamin Servey
+          </p>
+          <p class="project-authors" style="font-size: 0.95rem;">
+            Department of Mechanical &amp; Aerospace Engineering, The Ohio State University, Columbus, OH, USA
+          </p>
+          <p class="project-venue">
+            Submitted to <em>ASME Journal of Mechanisms and Robotics</em> &mdash; under review (2026)
+          </p>
+
+          <nav class="project-links" aria-label="Resource links">
+            <a href="CM_model_stack_journal.pdf">Preprint (PDF)</a>
+            <a href="https://github.com/haijunsu-osu/parallelogram_model_comparison">GitHub Repository</a>
+            <a href="https://github.com/haijunsu-osu/parallelogram_model_comparison/blob/main/comparison/compare_models_gui.py">Interactive Comparison App</a>
+          </nav>
+
+          <!-- Figures row -->
+          <div class="figure-row">
+            <figure>
+              <img src="images/figure3.png" alt="Parallelogram flexure mechanism under external loading">
+              <figcaption><strong>Figure 3:</strong> Parallelogram flexure mechanism consisting of two identical fixed-guided beams of length <em>L</em>, connected by a rigid platform of width 2<em>W</em>, subjected to external loads <em>F<sub>x</sub></em>, <em>F<sub>y</sub></em>, and <em>M<sub>z</sub></em>.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/figure5.png" alt="Pseudo-rigid-body schematic of the parallelogram flexure">
+              <figcaption><strong>Figure 5:</strong> Pseudo-rigid-body (PRB) schematic of the parallelogram flexure. Each flexible beam is replaced by rigid links connected at characteristic pivots with lumped torsional springs <em>K<sub>&theta;</sub></em>, yielding an equivalent four-bar linkage.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/figure6.png" alt="Normalized deformed shape comparison across all eight fidelity levels">
+              <figcaption><strong>Figure 6:</strong> Normalized deformed-shape comparison produced by the interactive comparison app, overlaying all eight modeling levels (Linear, BCM, Guided BVP, Euler BVP, PRB Standard, PRB Optimized, FEA 2D, FEA 3D) against the high-fidelity 3D FEA reference.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/figure7.png" alt="User interface of the interactive benchmarking app">
+              <figcaption><strong>Figure 7:</strong> User interface of the interactive benchmarking app. The control panel includes sliders for loading and geometry, model-visibility toggles, and buttons for live 2D/3D FEA triggering, with a live numerical comparison table above.</figcaption>
+            </figure>
+          </div>
+
+          <!-- Abstract -->
+          <section class="project-section">
+            <h2>Abstract</h2>
+            <p>
+              This paper presents an open-source, hierarchical, eight-level multi-fidelity modeling stack as a comprehensive technical routine for the design and analysis of compliant mechanisms, utilizing the widely adopted parallelogram flexure as a representative case study. Our methodology involves the systematic implementation, integration, and cross-validation of modeling levels spanning from first-order linear beam theories and refined pseudo-rigid-body models (PRBM) with optimized characteristic radius factors, to intermediate beam constraint models (BCM), exact transcendental solutions for fixed-guided beams, numerical boundary value problem (BVP) systems, and high-fidelity 3-D solid finite element analysis (FEA). All solvers, benchmarking datasets, and interactive tools have been developed as an open-source contribution to facilitate community adoption and further research. Major results demonstrate an excellent performance spread of over eight orders of magnitude in computational runtime, ranging from sub-microsecond algebraic evaluations to solid-mesh simulations requiring nearly a minute per load case. Furthermore, we quantify the localized divergence of low-fidelity models in predicting critical second-order effects, such as parasitic rotations and nonlinear softening/stiffening behavior near buckling thresholds. Based on the summary of these benchmark test results, a practical model selection guide is concluded to assist designers in selecting optimal modeling fidelities for various flexure systems, facilitating the rapid synthesis of precision mechanisms with guaranteed accuracy across expansive workspaces.
+            </p>
+            <p style="font-size: 0.92rem; color: var(--muted); margin-top: 0.8rem;">
+              <strong>Keywords:</strong> compliant mechanisms, multi-fidelity modeling, beam constraint model, pseudo-rigid-body model, finite element analysis, large deflections.
+            </p>
+          </section>
+
+          <!-- Results -->
+          <section class="project-section">
+            <h2>Results</h2>
+            <p>
+              The eight-level stack was cross-validated on a parallelogram flexure across the full range of applied loads. Every level was benchmarked against a high-fidelity 3D solid FEA reference to quantify both <em>computational cost</em> (Table&nbsp;9) and <em>predictive accuracy</em> (Table&nbsp;10). The resulting performance envelope spans more than eight orders of magnitude in runtime, giving designers a principled way to trade speed against fidelity within a single consistent framework.
+            </p>
+
+            <table class="result-table">
+              <caption>Table 9 &mdash; Computational Performance: Speed-up Relative to 3D FEA Reference</caption>
+              <thead>
+                <tr>
+                  <th>Model Level</th>
+                  <th>Class</th>
+                  <th>Speed-up vs. FEA 3D</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>FEA 3D</td><td>Solid-element reference</td><td>1&times; (reference)</td></tr>
+                <tr><td>FEA 2D</td><td>Plane-stress / shell</td><td>3.51&times;10<sup>1</sup></td></tr>
+                <tr><td>Euler BVP</td><td>Exact transcendental BVP</td><td>1.55&times;10<sup>1</sup></td></tr>
+                <tr><td>Guided BVP</td><td>Fixed-guided BVP</td><td>1.40&times;10<sup>4</sup></td></tr>
+                <tr><td>PRB (Optimized &gamma;)</td><td>Pseudo-rigid-body</td><td>&sim;4.50&times;10<sup>6</sup></td></tr>
+                <tr><td>PRB (Standard)</td><td>Pseudo-rigid-body</td><td>&sim;4.50&times;10<sup>6</sup></td></tr>
+                <tr><td>BCM</td><td>Beam constraint model</td><td>1.28&times;10<sup>7</sup></td></tr>
+                <tr><td>Linear Beam</td><td>First-order closed-form</td><td>1.18&times;10<sup>8</sup></td></tr>
+              </tbody>
+            </table>
+
+            <table class="result-table">
+              <caption>Table 10 &mdash; Consolidated Error Summary (MAPE in %) Relative to 3D FEA Ground Truth. Each cell reports (<em>u<sub>y</sub></em> / <em>u<sub>x</sub></em> / <em>&phi;</em>).</caption>
+              <thead>
+                <tr>
+                  <th rowspan="2">Model Level</th>
+                  <th colspan="2">Case 1 (&alpha;<sub>x</sub>=0, &beta;=0)</th>
+                  <th colspan="2">Case 2 (&alpha;<sub>x</sub>=&minus;5, &beta;=0)</th>
+                  <th colspan="2">Case 3 (&alpha;<sub>x</sub>=0, &beta;=3)</th>
+                </tr>
+                <tr>
+                  <th>|&alpha;<sub>y</sub>| &lt; 5</th>
+                  <th>5 &le; |&alpha;<sub>y</sub>| &le; 20</th>
+                  <th>|&alpha;<sub>y</sub>| &lt; 5</th>
+                  <th>5 &le; |&alpha;<sub>y</sub>| &le; 20</th>
+                  <th>|&alpha;<sub>y</sub>| &lt; 5</th>
+                  <th>5 &le; |&alpha;<sub>y</sub>| &le; 20</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>L1: Linear Beam</td><td>4.8 / 100 / 100</td><td>23.3 / 100 / 100</td><td>20.0 / 100 / 100</td><td>13.1 / 100 / 100</td><td>3.6 / 100 / 100</td><td>21.1 / 100 / 100</td></tr>
+                <tr><td>L2: BCM</td><td>4.8 / 8.8 / 2.4</td><td>23.3 / 43.0 / 28.0</td><td>6.7 / 11.8 / 2.4</td><td>36.9 / 72.0 / 42.3</td><td>3.6 / 6.4 / 0.8</td><td>21.8 / 36.9 / 17.3</td></tr>
+                <tr><td>L3: Guided Beam</td><td>3.7 / 6.9 / 100</td><td>1.9 / 3.6 / 100</td><td>4.6 / 7.2 / 100</td><td>2.1 / 4.4 / 100</td><td>2.5 / 4.5 / 100</td><td>1.5 / 3.3 / 100</td></tr>
+                <tr><td>L4: Euler BVP<sup>&dagger;</sup></td><td>3.8 / 7.0 / 74.9</td><td>3.4 / 6.8 / 11.4</td><td>4.9 / 7.6 / 64.3</td><td>4.1 / 8.5 / 6.9</td><td>3.2 / 6.1 / 74.2</td><td>3.5 / 7.0 / 12.3</td></tr>
+                <tr><td>L5: PRB (Std.)</td><td>15.3 / 30.3 / 100</td><td>12.1 / 25.7 / 100</td><td>35.4 / 61.6 / 100</td><td>27.0 / 50.6 / 100</td><td>16.3 / 31.9 / 100</td><td>13.6 / 28.8 / 100</td></tr>
+                <tr><td>L6: PRB (Opt.)</td><td>1.0 / 6.1 / 100</td><td>2.3 / 4.0 / 100</td><td>15.2 / 36.2 / 100</td><td>15.2 / 36.2 / 100</td><td>0.3 / 2.8 / 100</td><td>0.5 / 7.9 / 100</td></tr>
+                <tr><td>L7: FEA 2D</td><td>0.9 / 1.4 / 3.5</td><td>1.1 / 1.6 / 2.3</td><td>1.1 / 1.9 / 3.7</td><td>1.4 / 2.0 / 2.9</td><td>0.7 / 2.3 / 76.8</td><td>1.2 / 4.8 / 49.4</td></tr>
+                <tr><td>L8: FEA 3D (Ref.)</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+              </tbody>
+            </table>
+            <p style="font-size: 0.88rem; color: var(--muted); margin-top: -0.6rem;">
+              <sup>&dagger;</sup> L4 MAPE reported only over convergent cases; the Euler BVP solver fails to converge in extreme compression/deflection regimes.
+            </p>
+
+            <p>
+              Low-fidelity models remain accurate for the dominant transverse displacement <em>u<sub>y</sub></em> under modest loading, but their error in parasitic axial displacement <em>u<sub>x</sub></em> and platform rotation <em>&phi;</em> grows rapidly near the buckling threshold. The BCM excels in rotation prediction for small deflections, while only the Euler BVP, 2D FEA, and 3D FEA reference capture nonlinear softening/stiffening behavior under compressive loads. The Optimized-&gamma; PRB consistently outperforms the Standard PRB on primary displacements and remains more numerically robust than Euler BVP near buckling limits.
+            </p>
+
+            <h3>Model Selection Guide</h3>
+            <p>
+              The benchmark sweep enables a validated roadmap for designers. Based on the performance spread and error localization observed across all three load cases, the authors recommend:
+            </p>
+            <ol>
+              <li><strong>Rapid Synthesis &amp; Optimization.</strong> For computationally demanding tasks such as design synthesis, optimization, or real-time control, the <strong>Beam Constraint Model (BCM)</strong> is recommended for small to intermediate deflections (|&alpha;<sub>y</sub>| &lt; 5), particularly when predictions of shortening <em>u<sub>x</sub></em> and stage rotation <em>&phi;</em> under non-compressive loads are required.</li>
+              <li><strong>Large-Deflection Analysis.</strong> In the large-deflection regime (5 &le; |&alpha;<sub>y</sub>| &le; 20), the <strong>Optimized PRB model</strong> (&gamma;=0.90) offers the best balance of speed and robustness&mdash;sub-millisecond runtimes while keeping transverse-deflection errors typically below 5% in non-compressive regimes.</li>
+              <li><strong>High-Fidelity Screening.</strong> For final design validation or high-precision analysis, a local mesh-based solver (FreeCAD / CalculiX) is the gold standard. Where a mesh solver is unavailable, <strong>2D Beam FEA</strong> provides 1&ndash;5% accuracy throughout the deflection range up to &alpha;<sub>y</sub>=20 in 1&ndash;2 seconds; failing that, the <strong>Euler BVP</strong> beam solver is recommended.</li>
+              <li><strong>Interactive Design &amp; Parasitic Analysis.</strong> For interactive tooling that requires high-fidelity feedback on parasitic rotation <em>&phi;</em>, use the <strong>Guided Beam solver</strong> (&sim;3 ms) or the <strong>Euler BVP solver</strong>. When stage-rotation prediction is not strictly required, the <strong>Optimized PRB</strong> is preferred for workspace exploration near buckling limits thanks to its superior numerical robustness.</li>
+            </ol>
+
+            <h3>Open-Source Tools &amp; Scripts</h3>
+            <ul class="code-links">
+              <li>Main repository &mdash; all solvers, benchmarks, and tooling: <a href="https://github.com/haijunsu-osu/parallelogram_model_comparison">haijunsu-osu/parallelogram_model_comparison</a></li>
+              <li>Interactive multi-fidelity comparison GUI (<a href="https://github.com/haijunsu-osu/parallelogram_model_comparison/blob/main/comparison/compare_models_gui.py"><code>comparison/compare_models_gui.py</code></a>): overlays deformed shapes and performance metrics from all eight levels in real time.</li>
+              <li>Preprint PDF (local copy): <a href="CM_model_stack_journal.pdf">CM_model_stack_journal.pdf</a></li>
+            </ul>
+          </section>
+
+          <!-- BibTeX -->
+          <section class="project-section">
+            <h2>BibTeX</h2>
+<pre class="bibtex-block">@unpublished{SuServey2026-CM-Stack,
+  title   = {An Open-Source Hierarchical Multi-fidelity Modeling Stack for Design and Analysis of Compliant Mechanisms},
+  author  = {Su, Hai-Jun and Servey, Benjamin},
+  note    = {Submitted to ASME Journal of Mechanisms and Robotics; under review},
+  year    = {2026},
+  url     = {https://github.com/haijunsu-osu/parallelogram_model_comparison}
+}</pre>
+          </section>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>IDR Lab</h3>
+        <p>Intelligent Design and Robotics Laboratory</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
