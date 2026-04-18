@@ -5,6 +5,9 @@
 .scholar-year.html
 .omx/
 
+# Claude Code local skills
+.claude/
+
 # OS / editor
 .DS_Store
 Thumbs.db
