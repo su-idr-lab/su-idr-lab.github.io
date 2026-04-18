@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Printed Soft Gripper with Positive Pressure Layer Jamming | IDR Lab</title>
+  <link rel="icon" type="image/png" href="../../logos/IDRLab_logo2_small_v2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    .project-page { max-width: 1060px; margin: 0 auto; }
+    .project-title {
+      font-family: "Newsreader", serif;
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+      line-height: 1.15;
+      text-align: center;
+      margin: 0 0 0.6rem;
+    }
+    .project-authors {
+      text-align: center;
+      font-size: 1.05rem;
+      margin: 0.4rem 0 0.2rem;
+    }
+    .project-venue {
+      text-align: center;
+      font-weight: 700;
+      margin: 0.2rem 0 1.3rem;
+    }
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem 1rem;
+      margin: 0.5rem 0 2rem;
+    }
+    .project-links a {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(36, 93, 184, 0.3);
+      background: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--ink);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .project-links a:hover {
+      background: rgba(36, 93, 184, 0.92);
+      color: #fff;
+    }
+    .figure-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .figure-row figure { margin: 0; }
+    .figure-row img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid rgba(17, 40, 70, 0.08);
+      background: #fff;
+    }
+    .figure-row figcaption {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+    .figure-row figcaption strong { color: var(--ink); }
+    .project-section { margin-top: 2.2rem; }
+    .project-section h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(17, 40, 70, 0.12);
+      padding-bottom: 0.4rem;
+    }
+    .project-section p { text-align: justify; }
+    .video-wrap {
+      position: relative;
+      padding-top: 56.25%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      margin: 0.4rem 0;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.6rem 0 1.2rem;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .result-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 700;
+      padding: 0.3rem 0;
+    }
+    .result-table th, .result-table td {
+      padding: 0.55rem 0.8rem;
+      border-bottom: 1px solid rgba(17, 40, 70, 0.1);
+      text-align: left;
+    }
+    .result-table thead th {
+      background: rgba(36, 93, 184, 0.1);
+      font-weight: 700;
+    }
+    .result-table tbody tr:last-child td { border-bottom: none; }
+    .bibtex-block {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1rem 1.1rem;
+      border-radius: 10px;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    @media (max-width: 680px) {
+      .figure-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="../../index.html" aria-label="IDR Lab home">
+        <img src="../../logos/IDRLab_logo2_small_v2.png" alt="IDR Lab logo" class="brand-mark">
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../people.html">People</a>
+        <a href="../../research.html">Research</a>
+        <a href="../../publications.html">Publications</a>
+        <a href="../../software.html">Software</a>
+        <a href="../../courses.html">Courses</a>
+        <a href="../../join.html">Join</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page-main">
+    <section class="section">
+      <div class="container">
+        <div class="project-page">
+
+          <h1 class="project-title">A 3D Printed Soft Robotic Gripper With a Variable Stiffness Enabled by a Novel Positive Pressure Layer Jamming Technology</h1>
+          <p class="project-authors">
+            George B. Crowley, Xianpai Zeng, <a href="mailto:su.298@osu.edu">Hai-Jun Su</a>
+          </p>
+          <p class="project-authors" style="font-size: 0.95rem;">
+            Department of Mechanical and Aerospace Engineering, The Ohio State University, Columbus, OH 43210, USA
+          </p>
+          <p class="project-venue">
+            <em>IEEE Robotics and Automation Letters</em>, Vol. 7, No. 2, pp. 5477&ndash;5482, April 2022
+          </p>
+
+          <nav class="project-links" aria-label="Resource links">
+            <a href="https://doi.org/10.1109/LRA.2022.3157448">Official Paper</a>
+            <a href="https://www.youtube.com/watch?v=LdEwf46dvU8">Presentation Video</a>
+          </nav>
+
+          <!-- Figures -->
+          <div class="figure-row">
+            <figure>
+              <img src="images/figure2.png" alt="Design overview of the positive pressure layer jamming gripper">
+              <figcaption><strong>Figure 2:</strong> Design overview. (a) Isometric view showing the four main components: (1) strain-limiting PETG layer, (2) TPU bellows, (3) jamming constraint frame, (4) actuation spring bearing mount. (b) Open and closed shapes. (c) Jamming bag key dimensions. (d) Dual-finger gripper configured for a UR5 robot arm. (e) Gripper sectional view. (f) Detailed view of the inflatable bellow.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/figure3.png" alt="Five-state functional cycle of the gripper">
+              <figcaption><strong>Figure 3:</strong> (a) Five-state functional cycle of the gripper: Open &rarr; Actuate &rarr; Jam Layers &rarr; Transport &rarr; Release. Each state specifies actuation bellows pressure, jamming bag pressure, and spring position. (b) Photographs of the closed and open gripper states mounted on a UR5 robot arm.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/figure6.png" alt="Finger stiffness test setups and results">
+              <figcaption><strong>Figure 6:</strong> Stiffness and pull-out force test results. (a) Stiffness test setup. (b) Average force vs. displacement curves at nine jamming pressures (0&ndash;310.3&nbsp;kPa), 5 trials per pressure. (c) Pull-out force test setup. (d) Force vs. displacement with standard deviation showing the 25&times; stiffness increase. (e) Average peak pull-out force vs. jamming pressure.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/figure7.png" alt="Dual-finger gripper on UR5 picking up heavy payloads">
+              <figcaption><strong>Figure 7:</strong> Dual-finger gripper mounted on the UR5 arm picking up a range of payloads: (a) aluminum cylinder 1.3&nbsp;kg with layer jamming on, (b) empty cup 0.1&nbsp;kg with LJ off, (c) aluminum block 1.15&nbsp;kg with LJ on, (d) bucket 1.7&nbsp;kg with LJ on.</figcaption>
+            </figure>
+          </div>
+
+          <!-- Abstract -->
+          <section class="project-section">
+            <h2>Abstract</h2>
+            <p>
+              In this research, a soft robotic gripper with a variable stiffness enabled by a novel positive pressure layer jamming technology was developed and fabricated in two materials using customized additive manufacturing. A novel positive pressure layer jamming technology was developed for tuning stiffness of the gripper. Positive pressure layer jamming has a higher performance potential than conventional vacuum layer jamming since a higher pressure can be applied, approximately 1.6&times; higher in terms of payload capacity. Two different thermoplastics materials are printed together to form a relatively hard backbone and a relatively soft airtight actuation bellows. The implementation of positive layer jamming will be described, along with the additive manufacturing techniques used to produce the gripper and the test results of the final design. Experimental tests show that this soft gripper was able to vary its stiffness about 25&times; fold with the positive layer jamming. This work demonstrates that the positive pressure jamming offers a novel method for varying soft robot stiffness with higher payload capacity than the conventional vacuum based layer jamming technology.
+            </p>
+            <p style="font-size: 0.92rem; color: var(--muted); margin-top: 0.8rem;">
+              <strong>Index Terms:</strong> Additive manufacturing, grasping, grippers and other end-effectors, soft robot applications, soft robot materials and design.
+            </p>
+          </section>
+
+          <!-- Video -->
+          <section class="project-section">
+            <h2>Presentation Video</h2>
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/LdEwf46dvU8" title="3D Printed Soft Robotic Gripper with Positive Pressure Layer Jamming" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </section>
+
+          <!-- Results -->
+          <section class="project-section">
+            <h2>Results</h2>
+            <p>
+              Stiffness and pull-out force tests were conducted with the single-finger configuration on a rigid base, deflected 6&nbsp;mm using a force sensor on a linear stage. Each pressure level was repeated five times. Pull-out force tests used the dual-finger gripper grasping a cardboard tube, traversed by a force gauge until the tube was removed. Actuation timing and tip-position repeatability were measured with the finger cycled open and closed at 310.3&nbsp;kPa.
+            </p>
+
+            <table class="result-table">
+              <caption>Key Experimental Results</caption>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Stiffness at 0&nbsp;kPa (no jamming)</td><td>0.248&nbsp;N/mm</td></tr>
+                <tr><td>Stiffness at 310.3&nbsp;kPa (max positive pressure)</td><td>6.38&nbsp;N/mm</td></tr>
+                <tr><td>Stiffness increase (positive pressure LJ)</td><td>&sim;25&times;</td></tr>
+                <tr><td>Payload capacity advantage vs. vacuum LJ</td><td>&sim;1.6&times;</td></tr>
+                <tr><td>Peak pull-out force (saturation at 241.3&nbsp;kPa)</td><td>&sim;80&nbsp;N average</td></tr>
+                <tr><td>Pull-out force increase vs. vacuum LJ equivalent</td><td>2.4&times; (vs. commercial mGrip&trade;)</td></tr>
+                <tr><td>Average gripper open time</td><td>0.24&nbsp;s</td></tr>
+                <tr><td>Average gripper close time</td><td>0.29&nbsp;s</td></tr>
+                <tr><td>Gripper tip position repeatability (std)</td><td>0.13&nbsp;mm</td></tr>
+                <tr><td>Maximum demonstrated payload</td><td>1.7&nbsp;kg (bucket)</td></tr>
+              </tbody>
+            </table>
+
+            <p>
+              The positive pressure layer jamming design consistently outperformed vacuum-equivalent configurations: the 25&times; stiffness increase was measured across all tested pressures without slip below 310.3&nbsp;kPa, and the pull-out force saturated in Phase&nbsp;1 (no-slip regime) at 241.3&nbsp;kPa with an average force of 80&nbsp;N&mdash;a 1.6&times; improvement over the theoretical vacuum equivalent and a 2.4&times; improvement over a comparable commercial gripper. Multi-material FDM printing (PETG backbone + TPU bellows) enabled tight internal channels and a strain-limiting layer that would otherwise require a separate assembly step in silicone-molded designs.
+            </p>
+          </section>
+
+          <!-- BibTeX -->
+          <section class="project-section">
+            <h2>BibTeX</h2>
+<pre class="bibtex-block">@article{Crowley2022-LJ-Gripper,
+  title   = {A 3{D} printed soft robotic gripper with a variable stiffness enabled by a novel positive pressure layer jamming technology},
+  author  = {Crowley, George B. and Zeng, Xianpai and Su, Hai-Jun},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {7},
+  number  = {2},
+  pages   = {5477--5482},
+  year    = {2022},
+  doi     = {10.1109/LRA.2022.3157448},
+  url     = {https://doi.org/10.1109/LRA.2022.3157448}
+}</pre>
+          </section>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>IDR Lab</h3>
+        <p>Intelligent Design and Robotics Laboratory</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
