@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Use of AI in Kinematics: MSR 2026 Tutorial | IDR Lab</title>
+  <link rel="icon" type="image/png" href="../../logos/IDRLab_logo2_small_v2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    .project-page { max-width: 1060px; margin: 0 auto; }
+    .project-title {
+      font-family: "Newsreader", serif;
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+      line-height: 1.15;
+      text-align: center;
+      margin: 0 0 0.6rem;
+    }
+    .project-authors {
+      text-align: center;
+      font-size: 1.05rem;
+      margin: 0.4rem 0 0.2rem;
+    }
+    .project-venue {
+      text-align: center;
+      font-weight: 700;
+      margin: 0.2rem 0 1.3rem;
+    }
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem 1rem;
+      margin: 0.5rem 0 2rem;
+    }
+    .project-links a {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(36, 93, 184, 0.3);
+      background: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--ink);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .project-links a:hover {
+      background: rgba(36, 93, 184, 0.92);
+      color: #fff;
+    }
+    .hero-figure {
+      margin: 0.4rem auto 1.5rem;
+      max-width: 880px;
+    }
+    .hero-figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid rgba(17, 40, 70, 0.08);
+      background: #fff;
+      display: block;
+    }
+    .hero-figure figcaption {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .figure-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .figure-row figure { margin: 0; }
+    .figure-row img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid rgba(17, 40, 70, 0.08);
+      background: #fff;
+    }
+    .figure-row figcaption {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+    .figure-row figcaption strong,
+    .hero-figure figcaption strong { color: var(--ink); }
+    .project-section { margin-top: 2.2rem; }
+    .project-section h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(17, 40, 70, 0.12);
+      padding-bottom: 0.4rem;
+    }
+    .project-section p { text-align: justify; }
+    .video-wrap {
+      position: relative;
+      padding-top: 56.25%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      margin: 0.4rem 0;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.6rem 0 1.2rem;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .result-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 700;
+      padding: 0.3rem 0;
+    }
+    .result-table th, .result-table td {
+      padding: 0.55rem 0.8rem;
+      border-bottom: 1px solid rgba(17, 40, 70, 0.1);
+      text-align: left;
+      vertical-align: top;
+    }
+    .result-table thead th {
+      background: rgba(36, 93, 184, 0.1);
+      font-weight: 700;
+    }
+    .result-table tbody tr:last-child td { border-bottom: none; }
+    .bibtex-block {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1rem 1.1rem;
+      border-radius: 10px;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .code-links { margin-top: 0.6rem; }
+    .code-links li { margin-bottom: 0.35rem; }
+    @media (max-width: 680px) {
+      .figure-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="../../index.html" aria-label="IDR Lab home">
+        <img src="../../logos/IDRLab_logo2_small_v2.png" alt="IDR Lab logo" class="brand-mark">
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../people.html">People</a>
+        <a href="../../research.html">Research</a>
+        <a href="../../publications.html">Publications</a>
+        <a href="../../software.html">Software</a>
+        <a href="../../courses.html">Courses</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page-main">
+    <section class="section">
+      <div class="container">
+        <div class="project-page">
+
+          <h1 class="project-title">The Use of AI in Kinematics: MSR 2026 Tutorial</h1>
+          <p class="project-authors">
+            <a href="mailto:su.298@osu.edu">Hai-Jun Su</a>
+          </p>
+          <p class="project-authors" style="font-size: 0.95rem;">
+            Intelligent Design and Robotics Laboratory, Department of Mechanical and Aerospace Engineering, The Ohio State University
+          </p>
+          <p class="project-venue">
+            4th International Symposium on Mechanical Systems and Robotics (MSR 2026), Irvine, CA &mdash; May 21&ndash;23, 2026
+          </p>
+
+          <nav class="project-links" aria-label="Resource links">
+            <a href="AI_in_Kinematics_Tutorial_MSR_Irvine_2026.pdf">Tutorial Slides (PDF)</a>
+            <a href="MSR_2026_Tutorial_Hands_On_Outline.pdf">Hands-on Outline</a>
+            <a href="https://youtu.be/oIdzRphaMkc">Presentation Video</a>
+            <a href="https://github.com/haijunsu-osu/IK_6R_RR_1993">Paper 1 GitHub</a>
+            <a href="https://github.com/haijunsu-osu/gdl_llm_reproduction">Paper 2 GitHub</a>
+            <a href="../robot_ik_LLM/index.html">Related IK Project</a>
+          </nav>
+
+          <figure class="hero-figure">
+            <img src="images/cover_serial_parallel_robot_ai.png" alt="AI in kinematics tutorial cover showing serial and parallel robot concepts">
+            <figcaption><strong>Tutorial theme:</strong> AI agents can accelerate implementation and testing in kinematics when human experts supply source material, mathematical structure, and validation criteria.</figcaption>
+          </figure>
+
+          <!-- Overview -->
+          <section class="project-section">
+            <h2>Overview</h2>
+            <p>
+              This MSR 2026 tutorial presents a validation-centered workflow for using large language models and coding agents in kinematics research and education. The core message is practical: AI is most useful when it is treated as a laboratory assistant that receives source material, constraints, tools, and tests. The session connects conversational planning, IDE-based code generation, computer algebra systems, and terminal-driven validation into a repeatable workflow for developing kinematics solvers and teaching applications.
+            </p>
+            <p>
+              The tutorial is based on two accepted ASME IDETC/CIE 2026 papers with J. Michael McCarthy, plus companion repositories and examples from classical mechanism theory. It covers simple planar linkages, spherical and spatial dyad synthesis, Stewart&ndash;Gough platform forward kinematics, general 6R inverse kinematics, and AI-assisted closed-form IK solvers for common industrial robot architectures.
+            </p>
+            <p>
+              The two foundational paper repositories are <a href="https://github.com/haijunsu-osu/IK_6R_RR_1993">IK_6R_RR_1993</a> for the AGI-in-kinematics benchmark framing and general 6R IK work, and <a href="https://github.com/haijunsu-osu/gdl_llm_reproduction">gdl_llm_reproduction</a> for the practical LLM-assisted kinematics examples.
+            </p>
+          </section>
+
+          <!-- Video -->
+          <section class="project-section">
+            <h2>Presentation Video</h2>
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/oIdzRphaMkc" title="The Use of AI in Kinematics: MSR 2026 Tutorial" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </section>
+
+          <!-- Figures row -->
+          <div class="figure-row">
+            <figure>
+              <img src="images/hierarchy_of_intelligence.png" alt="Five-level hierarchy of AI capability in kinematics">
+              <figcaption><strong>AI capability hierarchy:</strong> The tutorial frames current systems as effective for guided research workflows and asks what stronger AGI evidence in kinematics would require.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/general_6r_ik_industrial_ai.png" alt="General 6R inverse kinematics concept with branch and validation cues">
+              <figcaption><strong>General 6R IK:</strong> The most challenging case study highlights branch completeness, numerical robustness, and FK&ndash;IK&ndash;FK validation as essential evidence.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/6R_spherical.png" alt="6R robot with spherical wrist architecture">
+              <figcaption><strong>Spherical-wrist IK:</strong> A 6R robot with intersecting wrist axes enables position-orientation decoupling and closed-form solver generation with validation across industrial robots.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/6R_parallel.png" alt="6R robot with parallel joint architecture">
+              <figcaption><strong>Parallel-joint IK:</strong> A 6R robot with parallel middle axes reduces to a bilinear two-angle system followed by a planar 3R subproblem.</figcaption>
+            </figure>
+          </div>
+
+          <!-- Tutorial structure -->
+          <section class="project-section">
+            <h2>Tutorial Structure</h2>
+            <p>
+              The 45-minute tutorial and 15-minute Q/A were organized around four modules, moving from motivation and tool setup to concrete kinematics case studies and responsible educational use.
+            </p>
+
+            <table class="result-table">
+              <caption>Session Modules</caption>
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Focus</th>
+                  <th>Takeaway</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1. Introduction</td>
+                  <td>Why kinematics is difficult for AI: geometry, branches, singularities, polynomial elimination, and numerical stability.</td>
+                  <td>AI output is useful only when paired with independent checks.</td>
+                </tr>
+                <tr>
+                  <td>2. Environment and agents</td>
+                  <td>ChatGPT, VS Code, Codex, Claude Code, Python, SciPy, Mathematica, terminal runs, and browser demos.</td>
+                  <td>Use chat for framing and agent mode for files, tests, and iteration.</td>
+                </tr>
+                <tr>
+                  <td>3. Kinematics examples</td>
+                  <td>Four-bar analysis, RR/PR dyads, spatial SS synthesis, Stewart&ndash;Gough FK, general 6R IK, and industrial 6R IK architectures.</td>
+                  <td>The hard part is specifying the stable mathematical route and the evidence that proves it worked.</td>
+                </tr>
+                <tr>
+                  <td>4. Future and education</td>
+                  <td>Domain skills, validation harnesses, responsible disclosure, and AI-assisted teaching tools.</td>
+                  <td>AI should compress implementation loops without replacing derivation, debugging, and mathematical judgment.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- Hands-on workflow -->
+          <section class="project-section">
+            <h2>Hands-on Workflow</h2>
+            <p>
+              The live workflow asks participants to move from an informal question to a structured agent prompt, then to executable code and a validation report. Before asking the agent to build a solver or app, the prompt should define the source material, notation, exact task, branch requirements, deliverables, and pass/fail evidence. In the kinematics examples, that evidence includes loop residuals, known solution counts, planted roots, FK&ndash;IK&ndash;FK checks, and stress tests around singular or near-degenerate cases.
+            </p>
+
+            <table class="result-table">
+              <caption>Case Studies and Validation Evidence</caption>
+              <thead>
+                <tr>
+                  <th>Case Study</th>
+                  <th>Agent Contribution</th>
+                  <th>Required Evidence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Planar four-bar analysis</td>
+                  <td>Translate textbook equations into a branch-aware solver and visualizer.</td>
+                  <td>Loop closure, link-length residuals, and two valid assembly branches where expected.</td>
+                </tr>
+                <tr>
+                  <td>Planar and spherical dyad synthesis</td>
+                  <td>Generate symbolic/numeric workflows for RR, PR, and spherical RR synthesis examples.</td>
+                  <td>Constraint residuals, rank checks, real-solution filtering, and axis-aware validation.</td>
+                </tr>
+                <tr>
+                  <td>Spatial SS synthesis and Stewart&ndash;Gough FK</td>
+                  <td>Implement published algebraic pipelines and CAS-driven elimination steps.</td>
+                  <td>Known solution counts, planted roots, polynomial degree checks, and residual reports.</td>
+                </tr>
+                <tr>
+                  <td>General 6R inverse kinematics</td>
+                  <td>Code the Raghavan&ndash;Roth style dialytic-elimination route and numerical root solve.</td>
+                  <td>Sixteen IK branches where applicable and FK&ndash;IK&ndash;FK pose recovery.</td>
+                </tr>
+                <tr>
+                  <td>Industrial 6R spherical-wrist and parallel-joint IK</td>
+                  <td>Generate solver code, prompts, tests, and benchmark reports for common architectures.</td>
+                  <td>Validation on industrial robot catalogs and randomized configurations.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- Resources -->
+          <section class="project-section">
+            <h2>Resources</h2>
+            <ul class="code-links">
+              <li>Tutorial slide deck: <a href="AI_in_Kinematics_Tutorial_MSR_Irvine_2026.pdf">AI_in_Kinematics_Tutorial_MSR_Irvine_2026.pdf</a></li>
+              <li>Hands-on outline: <a href="MSR_2026_Tutorial_Hands_On_Outline.pdf">MSR_2026_Tutorial_Hands_On_Outline.pdf</a></li>
+              <li>Video presentation: <a href="https://youtu.be/oIdzRphaMkc">https://youtu.be/oIdzRphaMkc</a></li>
+              <li>Paper 1 GitHub repository: <a href="https://github.com/haijunsu-osu/IK_6R_RR_1993">haijunsu-osu/IK_6R_RR_1993</a></li>
+              <li>Paper 2 GitHub repository: <a href="https://github.com/haijunsu-osu/gdl_llm_reproduction">haijunsu-osu/gdl_llm_reproduction</a></li>
+              <li>Spatial SS dyad synthesis repository: <a href="https://github.com/haijunsu-osu/llm_ss_synthesis_liao_2001">haijunsu-osu/llm_ss_synthesis_liao_2001</a></li>
+              <li>Stewart&ndash;Gough FK repository: <a href="https://github.com/haijunsu-osu/llm_FK_Stewart_Husty_1996">haijunsu-osu/llm_FK_Stewart_Husty_1996</a></li>
+              <li>AI-assisted analytical IK project page: <a href="../robot_ik_LLM/index.html">LLM Assisted IK Solvers for Robot Manipulators</a></li>
+            </ul>
+          </section>
+
+          <!-- BibTeX -->
+          <section class="project-section">
+            <h2>BibTeX</h2>
+<pre class="bibtex-block">@misc{Su2026-MSR-AI-Kinematics-Tutorial,
+  title        = {The Use of AI in Kinematics: Hands-on Tutorial for Validation-Centered Human-AI Solver Development},
+  author       = {Su, Hai-Jun},
+  howpublished = {Tutorial presented at the 4th International Symposium on Mechanical Systems and Robotics (MSR 2026)},
+  address      = {Irvine, CA},
+  month        = {May},
+  year         = {2026},
+  url          = {https://su-idr-lab.github.io/projects/msr_2026_ai_kinematics_tutorial/index.html}
+}
+
+@inproceedings{SuMcCarthy2026-AGI-Kinematics,
+  title     = {Where we are in the path towards AGI in kinematics?},
+  author    = {Su, Hai-Jun and McCarthy, J. Michael},
+  booktitle = {Proceedings of the ASME 2026 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference},
+  address   = {Houston, TX},
+  month     = {August},
+  year      = {2026},
+  note      = {Paper No. DETC2026-193961},
+  url       = {https://github.com/haijunsu-osu/IK_6R_RR_1993}
+}
+
+@inproceedings{SuMcCarthy2026-LLM-Kinematics,
+  title     = {Solving Kinematics Problems by Leveraging the Power of Large Language Models},
+  author    = {Su, Hai-Jun and McCarthy, J. Michael},
+  booktitle = {Proceedings of the ASME 2026 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference},
+  address   = {Houston, TX},
+  month     = {August},
+  year      = {2026},
+  note      = {Paper No. DETC2026-193726},
+  url       = {https://github.com/haijunsu-osu/gdl_llm_reproduction}
+}</pre>
+          </section>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>IDR Lab</h3>
+        <p>Intelligent Design and Robotics Laboratory</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
